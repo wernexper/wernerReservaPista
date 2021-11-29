@@ -1,0 +1,14 @@
+Pista = usuarioPistaDTO{idUsuario=null, idPista=4, fecha=2021-04-04}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=7, fecha=2021-11-16}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=10, fecha=2021-10-10}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=10, fecha=2021-11-25}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=10, fecha=2021-11-26}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-10-31}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-15}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-16}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-17}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-18}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-19}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-21}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-11-22}
+Pista = usuarioPistaDTO{idUsuario=null, idPista=11, fecha=2021-12-09}
