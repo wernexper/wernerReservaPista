@@ -50,7 +50,8 @@ public class TestMenjoReserva {
                                         usuarios.forEach(usuario -> {
                                            System.out.println("Persona = " + usuario);
                                        });
-					//salimos
+					//salimos del swch
+                                        
 					break;
 				case 2: 
 					ReservaDAOJDBC reservaDao2 = new ReservaDAOJDBC(conexion);
