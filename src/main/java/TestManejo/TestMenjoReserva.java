@@ -27,8 +27,9 @@ public class TestMenjoReserva {
                 conexion.setAutoCommit(false);
             }
             while(select != 0){
-			//Try catch para evitar que el programa termine si hay un error
+			
 			try{
+                            //escojemos del 1-6 y 0 para Salir
 				System.out.println("Elige opción:"
                                         + "\n1: Usuarios"
                                         + "\n2 Pistas"
@@ -43,12 +44,13 @@ public class TestMenjoReserva {
 				//Ejemplo de switch case en Java
 				switch(select){
 				case 1: 
-					  ReservaDAOJDBC reservaDao = new ReservaDAOJDBC(conexion);
+                                        //creamos la conexion con la bbdd
+                                        ReservaDAOJDBC reservaDao = new ReservaDAOJDBC(conexion);
                                         List<UserDTO> usuarios = reservaDao.seleccionarUser();    
                                         usuarios.forEach(usuario -> {
                                            System.out.println("Persona = " + usuario);
                                        });
-					
+					//salimos
 					break;
 				case 2: 
 					ReservaDAOJDBC reservaDao2 = new ReservaDAOJDBC(conexion);
@@ -59,6 +61,7 @@ public class TestMenjoReserva {
 					break;
 				case 3: 
                                     ReservaDAOJDBC reservaDao3 = new ReservaDAOJDBC(conexion);
+                                    //introducimos los 
                                     List<PistaDTO> pistasLibres = reservaDao3.verPistaLibre(Date.valueOf("2021-11-15"));  
                                     System.out.println("PISTAS LIBRES DEL DIA: 2021-11-15\n");
                                     pistasLibres.forEach(pistaLibre -> {
