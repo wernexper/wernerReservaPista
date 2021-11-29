@@ -63,12 +63,19 @@ public class TestMenjoReserva {
 				case 3: 
                                     ReservaDAOJDBC reservaDao3 = new ReservaDAOJDBC(conexion);
                                     //introducimos los 
-                                    List<PistaDTO> pistasLibres = reservaDao3.verPistaLibre(Date.valueOf("2021-11-15"));  
-                                    System.out.println("PISTAS LIBRES DEL DIA: 2021-11-15\n");
+                                    dia=0;
+                                    mes=0;
+                                    System.out.println("dia:\n");
+                                    dia = scanner.nextInt();
+                                    System.out.println("mes:\n");
+                                    mes = scanner.nextInt();
+                                    
+                                    List<PistaDTO> pistasLibres = reservaDao3.verPistaLibre(Date.valueOf("2021-"+mes+"-"+(dia+1)));  
+                                    System.out.println("PISTAS LIBRES DEL DIA: "+Date.valueOf("2021-"+mes+"-"+(dia))+"\n");
                                     pistasLibres.forEach(pistaLibre -> {
                                         System.out.println("Pista: " + pistaLibre.getNombrePista()+"\nDirección: "+pistaLibre.getDireccionPista()+"\n\n");  
                                     });
-					
+					conexion.commit();
 					break;
 				case 4: 
                                     
@@ -79,11 +86,12 @@ public class TestMenjoReserva {
                                     }
                                     
                                     ReservaDAOJDBC reservaDao4 = new ReservaDAOJDBC(conexion);
+                                    //reiniciamos los valores de las variables(aunque no sea necesario lo hago por costumbre) 
                                     idUsuario="";
                                     idPista=0;
                                     dia=0;
                                     mes=0;
-                                    
+                                    //pedimos datos por dato 
                                     System.out.println("Usuario:\n");
                                     idUsuario= scanner.nextLine();
                                     System.out.println("pista:\n");
@@ -92,7 +100,7 @@ public class TestMenjoReserva {
                                     dia = scanner.nextInt();
                                     System.out.println("mes:\n");
                                     mes = scanner.nextInt();
-                                    
+                                    //intrdocumos todos los datos a un nuevo OBJ
                                     UsuarioPistaDTO escojerPista = new UsuarioPistaDTO(idUsuario, idPista, Date.valueOf("2021-"+mes+"-"+(dia+1)));
                                     System.out.println("Pista escojida:\n");
                                     System.out.println(escojerPista.toString());
@@ -141,26 +149,28 @@ public class TestMenjoReserva {
                                     String fileName = "misPistas.txt";
                                     String encoding = "UTF-8";
                                     PrintWriter writer = new PrintWriter(fileName, encoding);
+                                   //creamos la conexion
                                     conexion =  Conexion.getConnection();
-            
+                                    
                                     if (conexion.getAutoCommit()){
                                         conexion.setAutoCommit(false);
                                     }
                                      ReservaDAOJDBC reservaDao6 = new ReservaDAOJDBC(conexion);
-                                     //public List<UsuarioPistaDTO> misPistas(String idUsuario) throws SQLException {
+                                     //
                                      
                                         idUsuario="";
                                         System.out.println("Usuario:\n");
                                         idUsuario= scanner.nextLine();
-                                        //escribimos en el archivo
+                                        //escribimos en el fichero
                                         List<UsuarioPistaDTO> mipista = reservaDao6.misPistas(idUsuario);
                                         mipista.forEach(usuario -> {
                                            writer.println("Pista = " + usuario);
                                        });
+                                        //cerramos el fichero
                                         writer.close();
-					conexion.commit();
-                                        //leemos los datos dentro del archivo
+                                        conexion.commit();
                                         
+                                        //leemos el fichero
                                         try {
                                             System.out.println("Mis Pistas");
                                             Scanner input = new Scanner(new File("misPistas.txt"));

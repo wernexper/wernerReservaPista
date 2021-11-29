@@ -11,10 +11,10 @@ import java.time.LocalDate;
 
 
 public class ReservaDAOJDBC implements ReservaDAO{
-    
+   // Creamos los consultas que necesitemos 
     private static final String SQL_SELECT_USER = "SELECT * FROM usuario";
     private static final String SQL_SELECT_PISTA = "SELECT * FROM pista";
-    //private static final String SQL_SELECT_PISTA_LIBRE = "SELECT nombrePista,direccionPista from pista JOIN usuariopista WHERE (usuariopista.idPista <> pista.idPista );";
+    
     
     private Connection conexionTransaccional; 
 
